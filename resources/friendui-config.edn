@@ -1,0 +1,33 @@
+{ :username-kw :user/email
+  :pw-kw :user/password
+  :activated-kw :user/activated
+  :role-kw :user/role
+  :hostname "http://crossroadperformancetracks.com/" ; used for generation of activation link
+
+  :send-activation-email true ; email on activation can be turned off to fit your needs
+  :mail-from "orders@crossroadsmusic.com" ; used as from mail address
+  :mail-type :smtp                        ; the other option is :sendmail
+  :smtp-data { :host "email-smtp.us-east-1.amazonaws.com"
+               :user "AKIAIQGHLDUW4ZXKF7G"
+               :pass "ArUeKyd6eHMJfPufYkt3Z5MCYZyt5bOYoqLeqouLw8H3"
+               :tls :yes
+               :port 465}
+    ; see: https://github.com/drewr/postal for more
+  :activation-mail-subject "Please activate your Crossroads account."
+  :activation-mail-body "Please click on this link to activate your account: {{activationlink}}. Best Regards,Your Example-Team"
+
+  :base-template-content-key :content ; the key where the base template expects the page content
+  :base-template-title-key :title ; the key where the base template expects the page title
+  :account-activated-redirect "/user/accountactivated" ; default uri - is provided by friend-ui
+
+  :available-roles [:user/admin :user/free :user/radio]
+  :new-user-role :user/free
+  :user-signup-redirect "/user/accountcreated" ; default uri - is provided by friend-ui
+
+  :partition-id ""
+  :database { :user "clojure_test"
+              :password "clojure_test"
+              :subname "//127.0.0.1/crossroads_store_test?zeroDateTimeBehavior=convertToNull"
+              :port "3306"
+              :subprotocol "mysql" }
+}
