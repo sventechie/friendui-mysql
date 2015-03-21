@@ -7,31 +7,31 @@
 (defrecord FrienduiStorage [db-map]
   f-glob/FrienduiStorage
   (account-activated? [this activation-id]
-    (db/account-activated? activation-id {:connection db-map}))
+    (db/account-activated? db-map activation-id))
 
   (activate-account [this activation-id]
-    (db/activate-account activation-id {:connection db-map}))
+    (db/activate-account db-map activation-id))
 
   (create-user [this email password role activation-id]
-    (db/create-new-user email password role activation-id {:connection db-map}))
+    (db/create-new-user db-map email password role activation-id))
 
   (get-all-users [this]
-    (db/get-all-users {:connection db-map}))
+    (db/get-all-users db-map))
 
   (get-user-for-activation-id [this id]
-    (db/get-user-for-activation-id id {:connection db-map}))
+    (db/get-user-for-activation-id db-map id))
 
   (update-user [this username data-map]
-    (db/update-user username data-map {:connection db-map}))
+    (db/update-user db-map username data-map))
 
   (username-exists? [this username]
-    (db/username-exists? username {:connection db-map}))
+    (db/username-exists? db-map username))
 
   (get-loggedin-user-map [this]
-    (db/get-loggedin-user-map {:connection db-map}))
+    (db/get-loggedin-user-map db-map))
 
   (get-old-pw-hash [this]
-    (db/get-old-pw-hash {:connection db-map}))
+    (db/get-old-pw-hash db-map))
 
   (change-password [this new-pw]
-    (db/change-password new-pw {:connection db-map})))
+    (db/change-password db-map new-pw)))
