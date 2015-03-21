@@ -49,10 +49,6 @@
        :roles #{(glob/role-kw user-map)}
        :password (glob/pw-kw user-map)})))
 
-(defn login-user-fn
-  "Friend auth function"
-  [email-address]
-  (login-user connection-info email-address))
 
 (defn account-activated?
   "Check if account has been activated"
