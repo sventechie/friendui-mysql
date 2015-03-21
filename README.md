@@ -1,7 +1,8 @@
 # friendui-mysql
 
 A Clojure library designed to store account information for Clojure Friend in MySQL.
-This is an implementation of the storage protocol in [friend-ui](https://github.com/sveri/friend-ui/) with SQL.
+This is an implementation of the storage protocol in [friend-ui](https://github.com/sveri/friend-ui/) with SQL
+(it was tied to Datomic originally).
 
 
 ## Usage
@@ -19,7 +20,9 @@ Load the `schema.sql` file from resources into your database. It creates tables 
                :subprotocol "mysql" }
 ```
 
-This library is not yet available on clojars, so you'll need to clone the repo and `lein install`.
+This library is not yet available on Clojars, so you'll need to clone the repo and `lein install`.
+
+See [friendui-mysql-example](https://github.com/sventechie/friendui-mysql-example) for a working example.
 
 I have attempted to use fairly generic SQL so this could be easily modified for PostgreSQL or other databases.
 
