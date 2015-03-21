@@ -103,8 +103,9 @@
   "Checks if account exists"
   [db-map email-address]
   (some?
-   (get-account-by-email-query {:email_address email-address}
-                               {:connection db-map})))
+    (first
+      (get-account-by-email-query {:email_address email-address}
+                                  {:connection db-map}))))
 
 (defn get-old-pw-hash
   "Get current password hash"
