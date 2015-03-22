@@ -29,7 +29,7 @@ WHERE azn_account.email_address = :email_address
 
 -- name: get-account-by-activation-query
 -- Find user by activation_id
-SELECT azn_account.email_address, azn_acl_role.name AS role
+SELECT verified, email_address, azn_acl_role.name AS role
 FROM azn_account
 JOIN azn_acl_role ON (azn_acl_role.id = azn_account.role_id)
 WHERE azn_account.verify_uuid = :activation_id

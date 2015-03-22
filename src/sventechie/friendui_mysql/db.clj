@@ -109,7 +109,8 @@
   ([db-map email]
   (:password
    (first
-    (get-password-query {:email_address email})))))
+    (get-password-query {:email_address email}
+                        {:connection db-map})))))
 
 (defn change-password
   "Change password"
